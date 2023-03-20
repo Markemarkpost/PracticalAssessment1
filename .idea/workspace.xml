@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b01f2dfd-5bd8-4d3e-b572-d85b308aa538" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/BuyerSeller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/HouseAndLand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/Land.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/Sale.java" afterDir="false" />
+    <list default="true" id="b01f2dfd-5bd8-4d3e-b572-d85b308aa538" name="Changes" comment="Basic class built.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mark/berry/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +39,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/marke/OneDrive/Uni/CQU/Programming Fundamentals/Assesment 1/A1 Part B/Submisson/Assesment1B"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,6 +55,18 @@
       <option name="presentableId" value="Default" />
       <updated>1678753583734</updated>
     </task>
+    <task id="LOCAL-00001" summary="Basic class built.">
+      <created>1678766134281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678766134281</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Basic class built." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic class built." />
   </component>
 </project>
