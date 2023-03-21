@@ -12,6 +12,12 @@ public class Land {
         this.landArea = landArea;
     }
 
+    public Land() {
+        this.lotNumber = 0;
+        this.address = "address";
+        this.landArea = 0.0;
+    }
+
     public int getLotNumber() {
         return lotNumber;
     }
@@ -38,10 +44,9 @@ public class Land {
 
     @Override
     public String toString() {
-        return "Land{" +
-                "lotNumber=" + lotNumber +
-                ", address='" + address + '\'' +
-                ", landArea=" + landArea +
-                '}';
+        return
+                "Lot Number = " + lotNumber + "\n" +
+                "Address = " + address + "\n" +
+                "Land Area = " + landArea + "\n";
     }
 }

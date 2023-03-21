@@ -12,6 +12,13 @@ public class HouseAndLand extends Land {
         this.numberOfBedrooms = numberOfBedrooms;
         this.numberOfBathrooms = numberOfBathrooms;
     }
+    public HouseAndLand(){
+        this.constructedArea = 0.0;
+        this.numberOfBedrooms = 0;
+        this.numberOfBathrooms = 0;
+
+
+    }
 
     public double getConstructedArea() {
         return constructedArea;
@@ -35,5 +42,13 @@ public class HouseAndLand extends Land {
 
     public void setNumberOfBathrooms(int numberOfBathrooms) {
         this.numberOfBathrooms = numberOfBathrooms;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Constructed Area = " + constructedArea + "\n" +
+                "Number Of Bedrooms = " + numberOfBedrooms + "\n" +
+                "Number Of Bathrooms = " + numberOfBathrooms + "\n";
     }
 }

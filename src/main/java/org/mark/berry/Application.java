@@ -1,13 +1,12 @@
 package org.mark.berry;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Application {
     Scanner scanner = new Scanner(System.in);
-
-    public Application() {
-
-    }
+    ArrayList<Land> propertyArray = new ArrayList<>();
+    ArrayList<BuyerSeller> buyerSellers = new ArrayList<>();
 
     public void commandLoop() {
         //welcome();
@@ -19,33 +18,34 @@ public class Application {
             System.out.println(mainMenu());
             mainMenuChoice = isInt(scanner.nextLine());
             switch (mainMenuChoice) {
+
+
                 case 1: {
                     int propertyTypeChoice = 0;
                     boolean propertyChoiceLoop = true;
+                    while (propertyChoiceLoop == true) {
 
-                    while (propertyChoiceLoop) {
                         System.out.println(propertyTypeMenu());
                         propertyTypeChoice = isInt(scanner.nextLine());
 
-
-                        if (propertyTypeChoice == 1) {
-
-                            System.out.println("Enter Lot Number");
-                            System.out.println("Enter Address");
-                            System.out.println("Enter Land Area");
-
+                        switch (propertyTypeChoice) {
+                            case 1:
+                                setUpLand();
+                                break;
+                            case 2:
+                                setUpHouseAndLand();
+                                break;
+                            case 3:
+                                propertyChoiceLoop = false;
+                                break;
                         }
-                        if (propertyTypeChoice == 2) {
-                            System.out.println("House & Land");
-                        } else {
-                            System.out.println("Please choose from the menu");
-                        }
+
                     }
                     break;
                 }
 
                 case 2:
-                    System.out.println("Option 2 Create a new buyer or seller record");
+                    setUpBuyerSeller();
                     break;
 
                 case 3:
@@ -61,12 +61,22 @@ public class Application {
                     commandLoop = false;
                     break;
 
+                case 10:
+                    for (Land l : propertyArray) {
+                        System.out.println(l);
+                    }
+                case 11:
+                    for (BuyerSeller b : buyerSellers){
+                        System.out.println(b);
+                    }
+
                 default:
                     System.out.println("Error - please enter an integer from the menu options");
                     System.out.println("Returning to main menu");
             }
 
         }
+
     }
 
 
@@ -97,9 +107,52 @@ public class Application {
         menu += "3: Create a new (property) sale record\n";
         menu += "4: Search and display an existing sale record based on sale Id\n";
         menu += "9: Exit Program\n";
+        menu += "10 TEST - print all stored property\n";
+        menu += "11 TEST - Print all buyer / seller\n";
         menu += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
         menu += "Enter Choice:";
         return menu;
+    }
+
+    private void setUpLand() {
+        Land land = new Land();
+        System.out.println("Enter Lot Number");
+        land.setLotNumber(isInt(scanner.nextLine()));
+        System.out.println("Enter Address");
+        land.setAddress(scanner.nextLine());
+        System.out.println("Enter Land Area");
+        land.setLandArea(isDouble(scanner.nextLine()));
+        propertyArray.add(land);
+    }
+
+    private void setUpHouseAndLand() {
+        HouseAndLand built = new HouseAndLand();
+        System.out.println("Enter Lot Number");
+        built.setLotNumber(isInt(scanner.nextLine()));
+        System.out.println("Enter Address");
+        built.setAddress(scanner.nextLine());
+        System.out.println("Enter Land Area");
+        built.setLandArea(isDouble(scanner.nextLine()));
+        System.out.println("Enter Constructed area");
+        built.setConstructedArea(isDouble(scanner.nextLine()));
+        System.out.println("Enter number of bedrooms");
+        built.setNumberOfBedrooms(isInt(scanner.nextLine()));
+        System.out.println("Enter number of bathrooms");
+        built.setNumberOfBathrooms(isInt(scanner.nextLine()));
+        propertyArray.add(built);
+    }
+
+    private void setUpBuyerSeller(){
+        BuyerSeller buyerSeller = new BuyerSeller();
+        System.out.println("Enter client ID");
+        buyerSeller.setClientID(scanner.nextLine());
+        System.out.println("Enter Client name");
+        buyerSeller.setName(scanner.nextLine());
+        System.out.println("Enter client address");
+        buyerSeller.setAddress(scanner.nextLine());
+        System.out.println("Enter client phone number");
+        buyerSeller.setPhoneNumber(isInt(scanner.nextLine()));
+        buyerSellers.add(buyerSeller);
     }
 
     private String propertyTypeMenu() {
@@ -108,12 +161,13 @@ public class Application {
         menu += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
         menu += ("1: Land Only\n");
         menu += ("2: House & Land Package\n");
+        menu += ("3: Return to Main menu\n");
         menu += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
         menu += "Enter Choice:";
         return menu;
     }
 
-    private static int isInt(String passed) {
+    private int isInt(String passed) {
         int userInput = 0;
         boolean isOk = false;
         while (!isOk) {
@@ -126,9 +180,23 @@ public class Application {
                 break;
             }
         }
-
         return userInput;
+    }
 
+    private double isDouble(String passed) {
+        double userInput = 0.0;
+        boolean isOk = false;
+        while (!isOk) {
+            try {
+                userInput = Double.parseDouble(passed);
+                isOk = true;
+
+            } catch (NumberFormatException e) {
+                System.out.println("");
+                break;
+            }
+        }
+        return userInput;
     }
 
 }
