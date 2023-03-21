@@ -2,43 +2,9 @@ package org.mark.berry;
 
 public class Main {
 
-
-
-    private static void welcome() {
-        String welcome = "\n";
-        welcome += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
-        welcome += "\033[0;34m" + "------------------------Welcome To CQ----------------------------\n" + "\033[0m";
-        welcome += "\033[0;34m" + "-------------------------Real estate-----------------------------" + "\033[0m";
-        for (int i = 0; i < welcome.length(); i++) {
-            System.out.print(welcome.charAt(i));
-            try {
-                Thread.sleep(5);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        //System.out.println("Please follow the instructions given.\n\n");
-    }
-
-    public static String mainMenu(){
-
-        String menu = "\n";
-        menu += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
-        menu += "\033[0;34m" + "--------------------------Main Menu------------------------------\n" + "\033[0m";
-        menu += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
-        menu += "1: Create a new property record\n";
-        menu += "2: Create a new buyer or seller record\n";
-        menu += "3: Create a new (property) sale record\n";
-        menu += "4: Search and display an existing sale record based on sale Id\n";
-        menu += "9: Exit Program\n";
-        menu += "\033[0;34m" + "-----------------------------------------------------------------\n" + "\033[0m";
-
-        return menu;
-    }
-
     public static void main(String[] args) {
-        welcome();
-        System.out.println(mainMenu());
+        Application commandLoop = new Application();
+        commandLoop.commandLoop();
 
 
 
