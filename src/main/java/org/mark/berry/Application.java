@@ -7,6 +7,7 @@ public class Application {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Land> propertyArray = new ArrayList<>();
     ArrayList<BuyerSeller> buyerSellers = new ArrayList<>();
+    ArrayList<Sale> salesArchive = new ArrayList<>();
 
     public void commandLoop() {
         //welcome();
@@ -39,7 +40,6 @@ public class Application {
                                 propertyChoiceLoop = false;
                                 break;
                         }
-
                     }
                     break;
                 }
@@ -49,7 +49,7 @@ public class Application {
                     break;
 
                 case 3:
-                    System.out.println("Option 3 Create a new (property) sale record");
+                    setUpSale();
                     break;
 
                 case 4:
@@ -153,6 +153,17 @@ public class Application {
         System.out.println("Enter client phone number");
         buyerSeller.setPhoneNumber(isInt(scanner.nextLine()));
         buyerSellers.add(buyerSeller);
+    }
+
+    private void setUpSale(){
+        Sale sale = new Sale();
+        System.out.println("Enter sale ID");
+        sale.setSaleId(scanner.nextLine());
+        System.out.println("Enter sale date");
+        System.out.println("Enter sale price $");
+        sale.setSoldPrice(isDouble(scanner.nextLine()));
+
+
     }
 
     private String propertyTypeMenu() {

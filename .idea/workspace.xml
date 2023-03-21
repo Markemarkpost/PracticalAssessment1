@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b01f2dfd-5bd8-4d3e-b572-d85b308aa538" name="Changes" comment="21.03.10am">
+    <list default="true" id="b01f2dfd-5bd8-4d3e-b572-d85b308aa538" name="Changes" comment="21.03.2pm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/mark/berry/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mark/berry/BuyerSeller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/BuyerSeller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mark/berry/HouseAndLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/HouseAndLand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mark/berry/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mark/berry/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mark/berry/Sale.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +98,32 @@
       <option name="project" value="LOCAL" />
       <updated>1679356919757</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="21.03.2pm">
+      <created>1679370989132</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679370989132</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic class built." />
     <MESSAGE value="21.03.8am" />
     <MESSAGE value="21.03.10am" />
-    <option name="LAST_COMMIT_MESSAGE" value="21.03.10am" />
+    <MESSAGE value="21.03.2pm" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.03.2pm" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/mark/berry/Application.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
