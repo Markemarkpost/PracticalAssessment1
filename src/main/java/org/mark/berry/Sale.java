@@ -1,10 +1,11 @@
 package org.mark.berry;
+import java.time.LocalDate;
 
-import java.util.Date;
+
 
 public class Sale {
     private String saleId;
-    private Date date;
+    private LocalDate date;
     private double soldPrice;
     private Land property;
     private BuyerSeller seller;
@@ -13,7 +14,7 @@ public class Sale {
     public Sale() {
     }
 
-    public Sale(String saleId, Date date, double soldPrice, Land property, BuyerSeller seller, BuyerSeller buyer) {
+    public Sale(String saleId, LocalDate date, double soldPrice, Land property, BuyerSeller seller, BuyerSeller buyer) {
         this.saleId = saleId;
         this.date = date;
         this.soldPrice = soldPrice;
@@ -30,11 +31,11 @@ public class Sale {
         this.saleId = saleId;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -68,5 +69,16 @@ public class Sale {
 
     public void setBuyer(BuyerSeller buyer) {
         this.buyer = buyer;
+    }
+
+    @Override
+    public String toString() {
+        return "\nsaleId= " + saleId +
+                "\ndate= " + date +
+                "\nsoldPrice= " + soldPrice +
+                "\nproperty= " + property +
+                "\nSeller= " + seller +
+                "\nBuyer= " + buyer;
+
     }
 }

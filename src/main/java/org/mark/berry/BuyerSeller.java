@@ -16,7 +16,7 @@ public class BuyerSeller {
 
     public BuyerSeller() {
         this.clientID = "clientID";
-        this.name = "name";
+        this.name = "X";
         this.address = "address";
         this.phoneNumber = 0;
     }
@@ -55,11 +55,9 @@ public class BuyerSeller {
 
     @Override
     public String toString() {
-        return "BuyerSeller{" +
-                "clientID='" + clientID + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                '}';
+        return "Client ID= " + clientID +
+                "Name= " + name +
+                "Address= " + address +
+                "phone Number =" + phoneNumber;
     }
 }

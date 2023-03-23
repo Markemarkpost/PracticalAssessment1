@@ -1,5 +1,6 @@
 package org.mark.berry;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,17 +10,19 @@ public class Application {
     ArrayList<BuyerSeller> buyerSellers = new ArrayList<>();
     ArrayList<Sale> salesArchive = new ArrayList<>();
 
+
     public void commandLoop() {
         //welcome();
+        propertyArray.add(new Land());
+        buyerSellers.add(new BuyerSeller());
 
         boolean commandLoop = true;
         while (commandLoop) {
 
             int mainMenuChoice = 0;
-            System.out.println(mainMenu());
+            System.out.print(mainMenu());
             mainMenuChoice = isInt(scanner.nextLine());
             switch (mainMenuChoice) {
-
 
                 case 1: {
                     int propertyTypeChoice = 0;
@@ -49,7 +52,36 @@ public class Application {
                     break;
 
                 case 3:
-                    setUpSale();
+                    Sale sale = new Sale();
+                    System.out.print("Enter sale ID: ");
+                    sale.setSaleId(scanner.nextLine());
+                    System.out.print("Enter sale date (YYYY-MM-DD) :");
+                    sale.setDate(LocalDate.parse(scanner.nextLine()));
+                    System.out.print("Enter sale price $ ");
+                    sale.setSoldPrice(isDouble(scanner.nextLine()));
+                    boolean itemCheck = true;
+                    while (itemCheck) {
+                        System.out.print("Enter property address");
+                        sale.setProperty(findAddress(scanner.nextLine()));
+                        System.out.print("Enter Seller name: ");
+                        sale.setSeller(findPerson(scanner.nextLine()));
+                        if (sale.getSeller().getName().equals("X")) {
+                            itemCheck = false;
+                        }
+                        System.out.print("Enter Buyer name: ");
+                        sale.setBuyer(findPerson(scanner.nextLine()));
+                        if (sale.getBuyer().getName().equals("X")) {
+                            itemCheck = false;
+                        }
+                        if (!sale.getBuyer().getName().equals("X") && !sale.getSeller().getName().equals("X")){
+                            itemCheck = false;
+                        }
+                    }
+                    salesArchive.add(sale);
+                    System.out.println("\nNew sale created" + sale);
+
+
+
                     break;
 
                 case 4:
@@ -66,7 +98,7 @@ public class Application {
                         System.out.println(l);
                     }
                 case 11:
-                    for (BuyerSeller b : buyerSellers){
+                    for (BuyerSeller b : buyerSellers) {
                         System.out.println(b);
                     }
 
@@ -142,7 +174,7 @@ public class Application {
         propertyArray.add(built);
     }
 
-    private void setUpBuyerSeller(){
+    private void setUpBuyerSeller() {
         BuyerSeller buyerSeller = new BuyerSeller();
         System.out.println("Enter client ID");
         buyerSeller.setClientID(scanner.nextLine());
@@ -155,15 +187,44 @@ public class Application {
         buyerSellers.add(buyerSeller);
     }
 
-    private void setUpSale(){
-        Sale sale = new Sale();
-        System.out.println("Enter sale ID");
-        sale.setSaleId(scanner.nextLine());
-        System.out.println("Enter sale date");
-        System.out.println("Enter sale price $");
-        sale.setSoldPrice(isDouble(scanner.nextLine()));
+    private Land findAddress(String address){
+        Land foundLand = searchLand(address);
 
+        if (foundLand.getAddress().equals(address)){
+            System.out.println(address + " added to sale");
+        }else System.out.println(address + " could not be found in records");
+        return foundLand;
+    }
 
+    private Land searchLand(String name) {
+        Land tempLand = propertyArray.get(0);
+        for (Land l : propertyArray) {
+            if (name.equals(l.getAddress())) {
+                tempLand = l;
+            }
+        }
+        return tempLand;
+    }
+
+    private BuyerSeller findPerson(String name) {
+        BuyerSeller foundPerson = searchBuyerSeller(name);
+
+        if (foundPerson.getName().equals(name)) {
+            System.out.println(name + " added to sale record");
+
+        } else System.out.println(name + " could not be found in records");
+
+        return foundPerson;
+    }
+
+    private BuyerSeller searchBuyerSeller(String name) {
+        BuyerSeller tempBuyerSeller = buyerSellers.get(0);
+        for (BuyerSeller b : buyerSellers) {
+            if (name.equals(b.getName())) {
+                tempBuyerSeller = b;
+            }
+        }
+        return tempBuyerSeller;
     }
 
     private String propertyTypeMenu() {
