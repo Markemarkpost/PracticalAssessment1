@@ -31,9 +31,6 @@ public class Application {
         propertyArray.add(new Land());
         buyerSellers.add(new BuyerSeller());
 
-        testBuyerFill();
-        propertyFill();
-
         int mainMenuChoice = 0;// variable is used to direct switch statement / user choice.
         // Beginning of command loop.
         while (commandLoop) {
@@ -188,10 +185,11 @@ public class Application {
         // this is where the default objects are used to assist the search process.
         //the if statements can be toggled if no object is bound outside the default.
         while (itemCheck) {
-            System.out.print("Enter property address");
+            System.out.print("Enter property address: ");
             sale.setProperty(findAddress(scanner.nextLine()));
             System.out.print("Enter Seller name: ");
             sale.setSeller(findPerson(scanner.nextLine()));
+
             if (sale.getSeller().getName().equals("X")) {
                 itemCheck = false;
             }
@@ -207,30 +205,32 @@ public class Application {
 
         checkSale(sale);
 
-
-
     }
-    private void checkSale(Sale sale){
+
+    private void checkSale(Sale sale) {
         // This method checks variables to make sure the sale can occur, an if statement is used to compare and validate
         // user input against records.
+        boolean valid = true;
         String checkSeller = sale.getSeller().getName();
         String checkBuyer = sale.getBuyer().getName();
         String checkAddress = sale.getProperty().getAddress();
 
-        if (checkSeller.equals("clientID")){
+        if (checkSeller.equals("X")) {
             System.out.println("Sale cannot occur, missing seller information.");
+            valid = false;
         }
-        if (checkBuyer.equals("clientID")){
+        if (checkBuyer.equals("X")) {
             System.out.println("Sale cannot occur, missing Buyer information.");
+            valid = false;
         }
-        if (checkAddress.equals("address")){
+        if (checkAddress.equals("address")) {
             System.out.println("Sale cannot occur, missing Property information.");
+            valid = false;
         }
-        else{
+        if (valid) {
             salesArchive.add(sale);
             System.out.println("\n----New sale created----" + sale);
         }
-
 
 
     }
@@ -361,9 +361,9 @@ public class Application {
                 passed = scanner.nextLine();
 
             }
-            if (userInput > 0){
+            if (userInput > 0) {
                 isOk = true;
-            }else {
+            } else {
                 System.out.println("negative number not accepted\n" + message);
                 passed = scanner.nextLine();
             }
@@ -390,9 +390,9 @@ public class Application {
                 System.out.print(message);
                 passed = scanner.nextLine();
             }
-            if (userInput > 0){
+            if (userInput > 0) {
                 isOk = true;
-            }else {
+            } else {
                 System.out.println("negative number not accepted\n" + message);
                 passed = scanner.nextLine();
             }
@@ -421,24 +421,4 @@ public class Application {
         return date;
     }
 
-    public void testBuyerFill(){
-        BuyerSeller test1 = new BuyerSeller("CL001","Mark James", "18 spearwood drive","0985656488");
-        BuyerSeller test2 = new BuyerSeller("CL002","Peter Griffin", "31 Spooner Street","1041889522");
-        BuyerSeller test3 = new BuyerSeller("CL003","Phileas Fogg", "7 Savile Row","01453833500");
-        BuyerSeller test4 = new BuyerSeller("CL004","Harry J Potter", "4 Privet Drive, Little Whinging, Surrey","0985656488");
-        buyerSellers.add(test1);
-        buyerSellers.add(test2);
-        buyerSellers.add(test3);
-        buyerSellers.add(test4);
-    }
-    public void propertyFill(){
-        HouseAndLand test1 = new HouseAndLand(34,"10 Stigwood Avenue",800.10,750.22,3,1);
-        HouseAndLand test2 = new HouseAndLand(34,"Apartment 1901",300.10,250.22,2,1);
-        HouseAndLand test3 = new HouseAndLand(34,"32 Windsor Gardens",500.10,450.22,3,1);
-        HouseAndLand test4 = new HouseAndLand(34,"742 Evergreen Terrace",440.20,750.22,4,1);
-        propertyArray.add(test1);
-        propertyArray.add(test2);
-        propertyArray.add(test3);
-        propertyArray.add(test4);
-    }
 }
