@@ -25,7 +25,7 @@ public class Application {
     private boolean commandLoop = true;// command loop control variables created.
 
     public void commandLoop() {
-        //welcome();// Calls void method for welcome message, comment out for faster load.
+        welcome();// Calls void method for welcome message, comment out for faster load.
 
         // default objects created, the default variables are used to determine search outcomes.
         propertyArray.add(new Land());
